@@ -1,0 +1,28 @@
+
+<html>
+<body>
+<ion-content padding center text-center>
+<ion-title>Sistema de Consulta Ciudadana<br><br></ion-title>
+    <ion-img width="200" height="50" src="http://asamblea.valledelcauca.gov.co/info/asamblea/media/pub39736.jpg"></ion-img>
+    <br><br><br><br><br><br>
+
+<form [formGroup]="todo" >
+<ion-list>
+  <ion-item>
+      <ion-input  placeholder="Identificacion" required formControlName="title"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-input placeholder="Contraseña" type="password" required formControlName="title2"></ion-input>
+  </ion-item>
+<button ion-button full (click)="Newlogin()">Ingresar</button>
+<button ion-button full color="light" (click)="goRegister()">Registrar</button>
+</ion-list>
+</form>
+
+
+
+
+
+</ion-content>
+</body>
+</html>

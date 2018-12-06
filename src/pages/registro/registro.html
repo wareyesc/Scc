@@ -1,0 +1,100 @@
+<!--
+  Generated template for the RegistroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Registro de usuario.</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+  <ion-list>
+    <ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label floating color="primary">Identificación</ion-label>
+        <ion-input type="number" formControlName="ident" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.ident">
+        <div class="error-message" *ngIf="validations_form.get('ident').hasError(validation.type) && (validations_form.get('ident').dirty || validations_form.get('ident').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label floating color="primary">Nombres</ion-label>
+        <ion-input type="text" formControlName="nombres" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.nombres">
+        <div class="error-message" *ngIf="validations_form.get('nombres').hasError(validation.type) && (validations_form.get('nombres').dirty || validations_form.get('nombres').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label floating color="primary">Apellidos</ion-label>
+        <ion-input type="text" formControlName="apellidos" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.apellidos">
+        <div class="error-message" *ngIf="validations_form.get('apellidos').hasError(validation.type) && (validations_form.get('apellidos').dirty || validations_form.get('apellidos').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-icon name="mail" item-start></ion-icon>
+      <ion-label floating color="primary">Correo Electronico</ion-label>
+      <ion-input type="email" formControlName="correo"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.correo">
+        <div class="error-message" *ngIf="validations_form.get('correo').hasError(validation.type) && (validations_form.get('correo').dirty || validations_form.get('correo').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+        <ion-icon name="briefcase" item-start></ion-icon>
+        <ion-label floating color="primary">Fuerza Publica</ion-label>
+        <ion-select formControlName="fuerzap" cancelText="Cancel" okText="OK">
+          <ion-option *ngFor="let fuerzap of fuerza" [value]="fuerzap" >{{ fuerzap }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <div>
+          <ng-container *ngFor="let validation of validation_messages.fuerzap">
+            <div *ngIf="validations_form.get('fuerzap').get('phone').hasError(validation.type) && (validations_form.get('fuerzap').get('phone').dirty || validations_form.get('fuerzap').get('phone').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+    </div>
+    <ion-item>
+        <ion-icon name="git-branch" item-start></ion-icon>
+        <ion-label floating color="primary">Rango</ion-label>
+        <ion-select formControlName="rango" cancelText="Cancel" okText="OK">
+          <ion-option *ngFor="let rango of rangos" [value]="rango" >{{ rango }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <div>
+          <ng-container *ngFor="let validation of validation_messages.rango">
+            <div *ngIf="validations_form.get('rango').get('phone').hasError(validation.type) && (validations_form.get('rango').get('phone').dirty || validations_form.get('rango').get('phone').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+    </div>
+
+    </ion-list>
+    <button ion-button full  (click)="addRegister()">Registrar</button>
+  </form>
+
+</ion-content>
